@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio Fotografer</title>
+  <meta name="description" content="Portfolio fotografer profesional: wedding, portrait, landscape, fashion, dan event. Pemesanan sesi foto mudah dan cepat." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+  /* Warna utama (bisa diganti sesuai branding fotografer) */
+  --color-primary: #3b82f6;
+  --color-primary-dark: #2563eb;
+  --color-text: #1f2937;
+  --color-muted: #6b7280;
+
+  /* Efek focus ring */
+  --ring: 0 0 0 4px rgba(59, 130, 246, .35);
+}
+
+html, body {
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, 
+               "Apple Color Emoji", "Segoe UI Emoji";
+  background-color: #fff;
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+/* Utility: focus ring */
+.focus-ring:focus {
+  outline: none;
+  box-shadow: var(--ring);
+  transition: box-shadow 0.25s ease;
+  border-radius: .5rem;
+}
+
+/* Smooth fade-in for images */
+img[data-loaded="true"] {
+  filter: none;
+  opacity: 1;
+}
+
+img.lazy {
+  opacity: 0;
+  transform: scale(0.98);
+  transition: opacity 0.5s ease, transform 0.4s ease;
+}
+
+img[data-loaded="true"] {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Lightbox scrollbar lock */
+body.lb-open {
+  overflow: hidden;
+}
+
+/* Sedikit tambahan agar konsisten */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+a:hover {
+  color: var(--color-primary-dark);
+}
+
+    
+  </style>
+</head>
+<body class="bg-neutral-50 text-neutral-900 selection:bg-black selection:text-white">
+  <!-- Header / Navbar -->
+  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-neutral-200">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="#" class="font-bold text-lg tracking-tight">Nama Fotografer</a>
+        <nav aria-label="Utama" class="hidden md:flex items-center gap-8">
+          <a href="#home" class="hover:opacity-70">Beranda</a>
+          <a href="#portfolio" class="hover:opacity-70">Portofolio</a>
+          <a href="#services" class="hover:opacity-70">Layanan</a>
+          <a href="#about" class="hover:opacity-70">Tentang</a>
+          <a href="#testimonials" class="hover:opacity-70">Testimoni</a>
+          <a href="#contact" class="inline-flex items-center gap-2 rounded-full border border-neutral-300 px-3 py-1.5 text-sm hover:bg-neutral-100">Kontak</a>
+        </nav>
+        <button id="btnMenu" class="md:hidden p-2 rounded-lg border border-neutral-300" aria-label="Buka menu" aria-controls="mobileNav" aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile Nav -->
+    <div id="mobileNav" class="md:hidden hidden border-t border-neutral-200">
+      <div class="px-4 py-3 space-y-2">
+        <a href="#home" class="block py-2">Beranda</a>
+        <a href="#portfolio" class="block py-2">Portofolio</a>
+        <a href="#services" class="block py-2">Layanan</a>
+        <a href="#about" class="block py-2">Tentang</a>
+        <a href="#testimonials" class="block py-2">Testimoni</a>
+        <a href="#contact" class="block py-2">Kontak</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="relative">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-10 items-center py-16 lg:py-24">
+        <div>
+          <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight">Menangkap Momen, Menceritakan Kisah</h1>
+          <p class="mt-4 text-neutral-600 max-w-xl">Fotografer profesional untuk wedding, portrait, fashion, dan event. Book sesi foto Anda dan dapatkan pengalaman yang menyenangkan dengan hasil yang berkelas.</p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="#portfolio" class="inline-flex items-center justify-center rounded-full bg-black text-white px-5 py-3 focus-ring">Lihat Portofolio</a>
+            <a href="#contact" class="inline-flex items-center justify-center rounded-full border border-neutral-300 px-5 py-3 hover:bg-neutral-100 focus-ring">Booking Jadwal</a>
+          </div>
+        </div>
+        <div class="aspect-[16/10] sm:aspect-[16/9] lg:aspect-[5/4] overflow-hidden rounded-3xl shadow-lg">
+          <!-- Ganti dengan hero foto/video Anda -->
+          <img class="w-full h-full object-cover lazy" loading="lazy" src="https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?q=80&w=1600&auto=format&fit=crop" alt="Cuplikan karya fotografi" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section id="portfolio" class="py-12 sm:py-16 bg-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
+        <div>
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Portofolio</h2>
+          <p class="mt-2 text-neutral-600">Filter untuk melihat kategori karya.</p>
+        </div>
+        <div class="flex flex-wrap gap-2" role="tablist" aria-label="Filter kategori">
+          <button class="filter-btn active inline-flex items-center rounded-full border border-neutral-300 px-3 py-1.5 text-sm" data-filter="all" aria-selected="true">Semua</button>
+          <button class="filter-btn inline-flex items-center rounded-full border border-neutral-300 px-3 py-1.5 text-sm" data-filter="wedding">Wedding</button>
+          <button class="filter-btn inline-flex items-center rounded-full border border-neutral-300 px-3 py-1.5 text-sm" data-filter="portrait">Portrait</button>
+          <button class="filter-btn inline-flex items-center rounded-full border border-neutral-300 px-3 py-1.5 text-sm" data-filter="fashion">Fashion</button>
+          <button class="filter-btn inline-flex items-center rounded-full border border-neutral-300 px-3 py-1.5 text-sm" data-filter="event">Event</button>
+          <button class="filter-btn inline-flex items-center rounded-full border border-neutral-300 px-3 py-1.5 text-sm" data-filter="landscape">Landscape</button>
+        </div>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6" id="gallery">
+        <!-- Item contoh (duplikasi & ganti src + data-category sesuai kebutuhan) -->
+        <figure class="group relative overflow-hidden rounded-2xl bg-neutral-100" data-category="wedding">
+          <img class="lazy w-full h-72 object-cover" loading="lazy" src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop" alt="Wedding moment" />
+          <figcaption class="pointer-events-none absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors"></figcaption>
+          <button class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity text-white text-sm font-medium flex items-center justify-center" data-lightbox="true" aria-label="Perbesar foto wedding">Lihat</button>
+        </figure>
+
+        <figure class="group relative overflow-hidden rounded-2xl bg-neutral-100" data-category="portrait">
+          <img class="lazy w-full h-72 object-cover" loading="lazy" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1200&auto=format&fit=crop" alt="Portrait" />
+          <figcaption class="pointer-events-none absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors"></figcaption>
+          <button class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity text-white text-sm font-medium flex items-center justify-center" data-lightbox="true" aria-label="Perbesar foto portrait">Lihat</button>
+        </figure>
+
+        <figure class="group relative overflow-hidden rounded-2xl bg-neutral-100" data-category="fashion">
+          <img class="lazy w-full h-72 object-cover" loading="lazy" src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop" alt="Fashion" />
+          <figcaption class="pointer-events-none absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors"></figcaption>
+          <button class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity text-white text-sm font-medium flex items-center justify-center" data-lightbox="true" aria-label="Perbesar foto fashion">Lihat</button>
+        </figure>
+
+        <figure class="group relative overflow-hidden rounded-2xl bg-neutral-100" data-category="event">
+          <img class="lazy w-full h-72 object-cover" loading="lazy" src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1200&auto=format&fit=crop" alt="Event" />
+          <figcaption class="pointer-events-none absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors"></figcaption>
+          <button class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity text-white text-sm font-medium flex items-center justify-center" data-lightbox="true" aria-label="Perbesar foto event">Lihat</button>
+        </figure>
+
+        <figure class="group relative overflow-hidden rounded-2xl bg-neutral-100" data-category="landscape">
+          <img class="lazy w-full h-72 object-cover" loading="lazy" src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200&auto=format&fit=crop" alt="Landscape" />
+          <figcaption class="pointer-events-none absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors"></figcaption>
+          <button class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity text-white text-sm font-medium flex items-center justify-center" data-lightbox="true" aria-label="Perbesar foto landscape">Lihat</button>
+        </figure>
+
+        <figure class="group relative overflow-hidden rounded-2xl bg-neutral-100" data-category="portrait">
+          <img class="lazy w-full h-72 object-cover" loading="lazy" src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?q=80&w=1200&auto=format&fit=crop" alt="Portrait 2" />
+          <figcaption class="pointer-events-none absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors"></figcaption>
+          <button class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity text-white text-sm font-medium flex items-center justify-center" data-lightbox="true" aria-label="Perbesar foto portrait">Lihat</button>
+        </figure>
+      </div>
+
+      <!-- CTA -->
+      <div class="mt-10 text-center">
+        <a href="#contact" class="inline-flex items-center justify-center rounded-full bg-black text-white px-6 py-3 focus-ring">Booking Sesi Foto</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="py-12 sm:py-16 bg-neutral-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Layanan & Paket</h2>
+        <p class="mt-2 text-neutral-600">Pilih paket sesuai kebutuhan Anda. Harga dapat disesuaikan.</p>
+      </div>
+      <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <article class="rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm">
+          <h3 class="text-xl font-semibold">Wedding Essentials</h3>
+          <p class="mt-2 text-neutral-600">8 jam liputan, 2 fotografer, 200+ foto edit.</p>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="font-semibold">Mulai 8jt</span>
+            <a href="#contact" class="rounded-full border px-4 py-2 hover:bg-neutral-100">Pesan</a>
+          </div>
+        </article>
+        <article class="rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm">
+          <h3 class="text-xl font-semibold">Portrait Signature</h3>
+          <p class="mt-2 text-neutral-600">2 jam sesi, 10 foto edit premium, studio/outdoor.</p>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="font-semibold">Mulai 1,5jt</span>
+            <a href="#contact" class="rounded-full border px-4 py-2 hover:bg-neutral-100">Pesan</a>
+          </div>
+        </article>
+        <article class="rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm">
+          <h3 class="text-xl font-semibold">Event Pro</h3>
+          <p class="mt-2 text-neutral-600">Dokumentasi event/brand, foto dan highlight cepat.</p>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="font-semibold">Mulai 3jt</span>
+            <a href="#contact" class="rounded-full border px-4 py-2 hover:bg-neutral-100">Pesan</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-12 sm:py-16 bg-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-10 items-center">
+      <div class="aspect-[4/3] overflow-hidden rounded-3xl bg-neutral-100">
+        <img class="lazy w-full h-full object-cover" loading="lazy" src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=1200&auto=format&fit=crop" alt="Fotografer" />
+      </div>
+      <div>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Tentang Saya</h2>
+        <p class="mt-4 text-neutral-700 leading-relaxed">Saya adalah fotografer profesional berbasis di [Kota], berpengalaman lebih dari 7 tahun dalam wedding, portrait, fashion, dan event. Saya percaya setiap momen memiliki cerita dan tugas saya adalah menangkapnya dengan elegan.</p>
+        <ul class="mt-4 grid sm:grid-cols-2 gap-2 text-neutral-700">
+          <li>• 200+ proyek selesai</li>
+          <li>• Klien lokal & internasional</li>
+          <li>• Penghargaan komunitas fotografi</li>
+          <li>• Tersedia untuk perjalanan</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="py-12 sm:py-16 bg-neutral-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Apa Kata Klien</h2>
+        <p class="mt-2 text-neutral-600">Beberapa testimoni pilihan.</p>
+      </div>
+      <div class="mt-8 grid md:grid-cols-3 gap-6">
+        <figure class="rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm">
+          <blockquote class="text-neutral-800">“Fotonya luar biasa! Detail wedding kami tertangkap sempurna.”</blockquote>
+          <figcaption class="mt-4 text-sm text-neutral-600">— Rani & Dimas</figcaption>
+        </figure>
+        <figure class="rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm">
+          <blockquote class="text-neutral-800">“Sesi portrait yang nyaman, hasilnya elegan dan autentik.”</blockquote>
+          <figcaption class="mt-4 text-sm text-neutral-600">— Meutia</figcaption>
+        </figure>
+        <figure class="rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm">
+          <blockquote class="text-neutral-800">“Profesional dan cepat. Konten event kami siap dipublikasikan.”</blockquote>
+          <figcaption class="mt-4 text-sm text-neutral-600">— Brand X</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-12 sm:py-16 bg-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-10">
+        <div>
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Hubungi Saya</h2>
+          <p class="mt-2 text-neutral-600">Kirim pesan untuk menanyakan ketersediaan dan penawaran.</p>
+          <form class="mt-6 grid grid-cols-1 gap-4" onsubmit="event.preventDefault(); alert('Terima kasih! Pesan Anda terkirim.'); this.reset();">
+            <input class="rounded-xl border border-neutral-300 px-4 py-3 focus-ring" placeholder="Nama" required />
+            <input type="email" class="rounded-xl border border-neutral-300 px-4 py-3 focus-ring" placeholder="Email" required />
+            <input class="rounded-xl border border-neutral-300 px-4 py-3 focus-ring" placeholder="Nomor WA (opsional)" />
+            <textarea rows="4" class="rounded-xl border border-neutral-300 px-4 py-3 focus-ring" placeholder="Pesan" required></textarea>
+            <button class="inline-flex items-center justify-center rounded-full bg-black text-white px-6 py-3">Kirim</button>
+          </form>
+          <div class="mt-6 text-sm text-neutral-600 space-y-1">
+            <p>Email: <a class="underline" href="mailto:email@fotografer.com">email@fotografer.com</a></p>
+            <p>Instagram: <a class="underline" href="#" target="_blank" rel="noreferrer">@username</a></p>
+          </div>
+        </div>
+        <div class="rounded-3xl overflow-hidden border border-neutral-200">
+          <iframe title="Lokasi Studio" class="w-full h-[340px] md:h-full" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.996328971841!2d112.750!3d-7.250!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMTUnMDAuMCJTIDExMsKwNDUnMDAuMCJF!5e0!3m2!1sid!2sid!4v0000000000000"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-10 border-t border-neutral-200 bg-neutral-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-sm text-neutral-600">© <span id="year"></span> Nama Fotografer. All rights reserved.</p>
+      <div class="flex items-center gap-4 text-sm">
+        <a href="#portfolio" class="hover:opacity-70">Karya</a>
+        <a href="#services" class="hover:opacity-70">Paket</a>
+        <a href="#contact" class="hover:opacity-70">Booking</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="fixed inset-0 hidden items-center justify-center bg-black/90 p-4">
+    <button id="lbClose" class="absolute top-4 right-4 p-2 rounded-lg bg-white/10 hover:bg-white/20" aria-label="Tutup lightbox">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+    </button>
+    <img id="lbImg" alt="Preview foto" class="max-h-[88vh] w-auto rounded-xl shadow-2xl" />
+  </div>
+
+  <script>
+    // Tahun footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu toggle
+    const btnMenu = document.getElementById('btnMenu');
+    const mobileNav = document.getElementById('mobileNav');
+    btnMenu?.addEventListener('click', () => {
+      const expanded = btnMenu.getAttribute('aria-expanded') === 'true';
+      btnMenu.setAttribute('aria-expanded', String(!expanded));
+      mobileNav.classList.toggle('hidden');
+    });
+
+    // Lazy-load polish: mark as loaded for blur transition
+    const imgs = document.querySelectorAll('img.lazy');
+    imgs.forEach(img => {
+      if (img.complete) img.setAttribute('data-loaded','true');
+      img.addEventListener('load', () => img.setAttribute('data-loaded','true'));
+    });
+
+    // Filter gallery
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const items = document.querySelectorAll('#gallery [data-category]');
+    function setActive(btn){
+      filterBtns.forEach(b=>{b.classList.remove('active','bg-black','text-white'); b.setAttribute('aria-selected','false');});
+      btn.classList.add('active','bg-black','text-white');
+      btn.setAttribute('aria-selected','true');
+    }
+    filterBtns.forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        setActive(btn);
+        const f = btn.dataset.filter;
+        items.forEach(it=>{
+          const show = f==='all' || it.dataset.category===f;
+          it.classList.toggle('hidden', !show);
+        });
+      });
+    });
+
+    // Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lbImg');
+    const lbClose = document.getElementById('lbClose');
+    function openLB(src, alt){
+      lbImg.src = src; lbImg.alt = alt || 'Preview foto';
+      lightbox.classList.remove('hidden');
+      document.body.classList.add('lb-open');
+    }
+    function closeLB(){
+      lightbox.classList.add('hidden');
+      document.body.classList.remove('lb-open');
+      lbImg.removeAttribute('src');
+    }
+    document.querySelectorAll('[data-lightbox]')?.forEach(btn=>{
+      btn.addEventListener('click', e=>{
+        const fig = e.currentTarget.closest('figure');
+        const img = fig.querySelector('img');
+        openLB(img.src.replace('w=1200','w=2000'), img.alt);
+      });
+    });
+    lbClose.addEventListener('click', closeLB);
+    lightbox.addEventListener('click', (e)=>{ if(e.target===lightbox) closeLB(); });
+    window.addEventListener('keydown', (e)=>{ if(e.key==='Escape' && !lightbox.classList.contains('hidden')) closeLB(); });
+  </script>
+</body>
+</html>
